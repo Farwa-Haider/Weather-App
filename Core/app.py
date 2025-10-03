@@ -71,27 +71,26 @@ def set_background_for_condition(condition):
         "Haze": "bg_fog.jpg"
     }
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    images_dir = os.path.join(base_dir, "images")   # use lowercase 'images' folder
+    images_dir = os.path.join(base_dir, "images")
     filename = mapping.get(condition, "bg_default.jpg")
     fn = os.path.join(images_dir, filename)
 
     try:
-        root.update_idletasks()                 # make sure geometry info is current
+        root.update_idletasks()                 
         w = root.winfo_width() or root.winfo_screenwidth() or 800
         h = root.winfo_height() or root.winfo_screenheight() or 600
 
         img = Image.open(fn)
-        img = img.resize((w, h), Image.LANCZOS)  # resize to current window size
+        img = img.resize((w, h), Image.LANCZOS)
         bg_photo = ImageTk.PhotoImage(img)
 
         background_label.config(image=bg_photo)
-        background_label.image = bg_photo         # keep reference so GC won't remove it
+        background_label.image = bg_photo   
 
     except Exception as e:
         # debugging info printed to console
         print("Failed to load background:", fn)
         print("Error:", repr(e))
-        # fallback: remove image and set plain background color
         try:
             background_label.config(image="")
             background_label.image = None
