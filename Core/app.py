@@ -100,7 +100,7 @@ def set_background_for_condition(condition):
             pass
 
 root = tk.Tk()
-root.title("Mini Weather")
+root.title("Weather App")
 root.geometry("450x450")
 
 background_label = tk.Label(root)
