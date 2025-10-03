@@ -88,7 +88,6 @@ def set_background_for_condition(condition):
         background_label.image = bg_photo   
 
     except Exception as e:
-        # debugging info printed to console
         print("Failed to load background:", fn)
         print("Error:", repr(e))
         try:
