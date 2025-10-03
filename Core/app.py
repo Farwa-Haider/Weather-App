@@ -99,12 +99,12 @@ def set_background_for_condition(condition):
 
 root = tk.Tk()
 root.title("Weather App")
-root.geometry("450x450")
+root.geometry("750x650")
 
 background_label = tk.Label(root)
 background_label.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-tk.Label(root, text="City:",  font=("Arial", 14)).pack(padx=18, pady=6, anchor="w")
+tk.Label(root, text="City:",  font=("Arial", 20, "bold")).pack(padx=18, pady=6, anchor="w")
 
 city_entry = tk.Entry(root, width=30)
 city_entry.pack(padx=8)
@@ -112,7 +112,7 @@ city_entry.pack(padx=8)
 get_btn = tk.Button(root, text="Get Weather", command=on_get_click)
 get_btn.pack(pady=6)
 
-result_label = tk.Label(root, text="Type a city and click Get Weather", justify="left", font=("Arial", 14))
+result_label = tk.Label(root, text="Type a city and click on Get Weather", justify="left", font=("Arial", 13))
 result_label.pack(padx=8, pady=5)
 
 temp_label = tk.Label(root, text="", font=("Arial", 28, "bold"), fg="blue")
@@ -124,11 +124,11 @@ desc_label.pack(pady=5)
 BASE_WIDTH = 450
 BASE_HEIGHT = 450
 
-def apply_scaled_fonts(scale):
-    city_font = ("Arial", max(10, int(20 * scale)), "bold") 
+def apply_scaled_fonts(scale): 
+    city_font = ("Arial", max(10, int(15 * scale)))
     temp_font = ("Arial", max(12, int(42 * scale)), "bold")
     desc_font = ("Arial", max(9, int(20 * scale)))            
-    entry_font = ("Arial", max(8, int(12 * scale)))
+    entry_font = ("Arial", max(8, int(14 * scale)))
     btn_font = ("Arial", max(8, int(12 * scale)), "bold")
     result_label.config(font=city_font)
     temp_label.config(font=temp_font)
